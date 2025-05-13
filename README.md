@@ -1,23 +1,23 @@
 ## Virtual Environment Setup
 
 ### Create the virtual env
-Windows:
+Linux/Mac:
 ```
 python3 -m venv venv
 ```
 
-Linux/Mac:
+Windows:
 ```
 python -m venv venv
 ```
 
 ### Activate the virtual env
-Windows:
+Linux/Mac:
 ```
 source venv/bin/activate
 ```
 
-Linux/Mac:
+Windows:
 ```
 venv\Scripts\activate
 ```
