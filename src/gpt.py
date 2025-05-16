@@ -1,3 +1,9 @@
+"""
+Repo of g4f library: https://github.com/xtekky/gpt4free
+
+"""
+
+
 from g4f.client import Client
 
 
