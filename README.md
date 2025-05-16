@@ -23,8 +23,14 @@ venv\Scripts\activate
 ```
 
 ### Upgrade pip
+Linux/Mac
 ```
 pip install --upgrade pip
+```
+
+Windows:
+```
+python.exe -m pip install --upgrade pip
 ```
 
 ### Install all dependecies
