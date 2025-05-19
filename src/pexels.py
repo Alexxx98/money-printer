@@ -22,11 +22,11 @@ class Pexels:
     api_key = os.getenv("PEXELS_API_KEY")
 
 
-    def search_for_photo_or_video(self, query: str, curated: bool = False) -> List[str]:
+    def search_for_photo(self, query: str, curated: bool = False) -> List[str]:
         """ Search the regular pexels photo library or the curated section """
 
         section: str
-        section = "curated " if curated else "search"
+        section = "curated" if curated else "search"
 
         response = requests.get(self.standard_endpoint + f"{section}?query={query}", headers={"Authorization": self.api_key})
         if response.ok:
