@@ -22,7 +22,7 @@ class Pexels:
     api_key = os.getenv("PEXELS_API_KEY")
 
 
-    def search_for_photo(self, query: str, curated: bool = False) -> List[str]:
+    def search_for_photo_or_video(self, query: str, curated: bool = False) -> List[str]:
         """ Search the regular pexels photo library or the curated section """
 
         section: str
@@ -38,9 +38,17 @@ class Pexels:
             return f"Error code: {response.status_code}"
 
 
-    def search_for_video(self) -> List[str]:
-        ...
+    def search_for_video(self, query: str, popular: bool = False) -> List[str]:
+        """ Search th regular pexels video library or the popular one """
 
+        section: str
+        section = "popular" if popular else "search"
 
-    def search_for_popular_video(self):
-        ...
+        response = requests.get(self.standard_endpoint + f"{section}?query={query}", headers={"Authorization": self.api_key})
+        if response.ok:
+            photos_data: dict = response.json()['photos']
+            photo_urls: List[str] = [photo["url"] for photo in photos_data]
+
+            return photo_urls
+        else:
+            return f"Error code: {response.status_code}"
