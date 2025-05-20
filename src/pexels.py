@@ -46,9 +46,9 @@ class Pexels:
 
         response = requests.get(self.standard_endpoint + f"{section}?query={query}", headers={"Authorization": self.api_key})
         if response.ok:
-            photos_data: List[dict] = response.json()['photos']
-            photo_urls: List[str] = [photo["url"] for photo in photos_data]
+            vidoes_data: List[dict] = response.json()['photos']
+            videos_urls: List[str] = [photo["url"] for photo in vidoes_data]
 
-            return photo_urls
+            return videos_urls
         else:
             return f"Error code: {response.status_code}"
