@@ -11,7 +11,7 @@ class GPT:
     client = Client()
 
 
-    def generate_text(self, prompt: str, web_search: bool) -> str:
+    def generate_text(self, prompt: str, web_search: bool = False) -> str:
         response = self.client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt}],
