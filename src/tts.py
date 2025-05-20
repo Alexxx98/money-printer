@@ -27,7 +27,7 @@ class TTS:
                 print(voice['ShortName'])
         
 
-    def generate_speech(self, text: str, voice: str) -> None:
+    def generate_speech(self, text: str, voice: str = "en-US-ChristopherNeural") -> None:
         """ Generate the speech with subtitles. """
 
         # Speech buffer
