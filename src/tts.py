@@ -5,6 +5,8 @@ Repo of edge_tts library: https://github.com/rany2/edge-tts.
 """
 
 
+from typing import List
+
 import edge_tts
 
 
@@ -13,23 +15,28 @@ class TTS:
     subtitles_file = "subtitles.srt"
 
 
-    async def print_voices(self):
-        """ Print all available voices. """
+    async def print_voices(self, language: str = 'English') -> None:
+        """ Print all available voices for specified language. """
 
-        # TODO: Print all available voices in the readable format, picking categories out.
+        # Get list of all available voices
+        voices: List[dict] = await edge_tts.list_voices()
+
+        for voice in voices:
+            # Select voices by language
+            if language in voice['FriendlyName']:
+                print(voice['ShortName'])
         
-
 
     def generate_speech(self, text: str, voice: str) -> None:
         """ Generate the speech with subtitles. """
 
-        # Generate speech
+        # Speech buffer
         communicate = edge_tts.Communicate(text, voice)
 
         # Subtitles buffer
         submaker = edge_tts.SubMaker()
 
-        # Write data to files
+        # Generate speech and Write data to files
         with open(self.audio_file, 'wb') as file:
             for chunk in communicate.stream_sync():
                 # if data type equals to audio
