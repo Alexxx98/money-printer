@@ -1,11 +1,8 @@
-from src.gpt import GPT
-from src.tts import TTS
+from src import gpt, tts, pexels
 
 
 def main() -> None:
-    gpt = GPT()
-    tts = TTS()
-    tts.generate_speech("siema byku, jak tam zdrowko?", "en-GB-SoniaNeural")
+    """ Function where the code is executed """
 
 
 # Execute the app
