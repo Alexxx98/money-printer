@@ -1,5 +1,6 @@
 *.pyc
 __pycache__
+har_and_cookies
 
 venv
 .env
