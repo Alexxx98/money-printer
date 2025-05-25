@@ -4,11 +4,14 @@ Repo of g4f library: https://github.com/xtekky/gpt4free
 """
 
 
+import g4f
+
 from g4f.client import Client
+from g4f.Provider import RetryProvider, Blackbox, Chatai, DuckDuckGo, Pizzagpt, PollinationsAI
 
 
 class GPT:
-    client = Client()
+    client = Client(client=RetryProvider([Blackbox, DuckDuckGo, Chatai, Pizzagpt, PollinationsAI ], shuffle=False))
 
 
     def print_providers(self, chat_model: str) -> None:
