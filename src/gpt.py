@@ -10,6 +10,9 @@ from g4f.client import Client
 from g4f.Provider import RetryProvider, Blackbox, Chatai, DuckDuckGo, Pizzagpt, PollinationsAI
 
 
+g4f.debug.logging = True
+g4f.debug.version_check = False
+
 class GPT:
     client = Client(client=RetryProvider([Blackbox, DuckDuckGo, Chatai, Pizzagpt, PollinationsAI ], shuffle=False))
 
